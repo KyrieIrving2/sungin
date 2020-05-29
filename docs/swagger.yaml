@@ -1,0 +1,69 @@
+basePath: /api/v1
+definitions:
+  contract.LoginInputModel:
+    properties:
+      password:
+        type: string
+      username:
+        type: string
+    type: object
+host: 127.0.0.1:8089
+info:
+  contact: {}
+  description: This is a sample server celler server.
+  license: {}
+  title: Swagger Example API
+  version: "1.0"
+paths:
+  /auth:
+    get:
+      consumes:
+      - application/x-json-stream
+      description: 获取token
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+      tags:
+      - auth
+    post:
+      consumes:
+      - application/x-json-stream
+      description: 获取token
+      parameters:
+      - description: LoginInputModel
+        in: body
+        name: LoginInputModel
+        required: true
+        schema:
+          $ref: '#/definitions/contract.LoginInputModel'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+      tags:
+      - auth
+  /user:
+    get:
+      consumes:
+      - application/json
+      description: 获取人员信息
+      parameters:
+      - description: ' '
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+        "400":
+          description: fail
+      summary: 获取人员信息
+      tags:
+      - user
+swagger: "2.0"

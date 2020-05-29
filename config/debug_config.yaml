@@ -1,0 +1,6 @@
+port: 8089
+
+jwt:
+  secret: gfsadkjhfkii
+  issuer: sungin
+  expire-duration: 1200
